@@ -17,7 +17,7 @@ import { LeaderProvider } from '../../providers/leader/leader';
 })
 export class AboutPage implements OnInit{
 
-leaders: Leader[];
+leaders: Leader;
 
 errMess: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
