@@ -16,7 +16,7 @@ import 'rxjs/add/operator/filter';
 export class FavoriteProvider {
 
 	favorites: Array<any>;
-
+  dish: Dish;
   constructor(public http: Http, private dishservice: DishProvider) {
     console.log('Hello FavoriteProvider Provider');
     this.favorites = [];
@@ -32,6 +32,7 @@ isFavorite(id: number): boolean
 {
 	return this.favorites.some(el => el === id);
 }
+
 getFavorites(): Observable<Dish> {
     return this.dishservice.getDishes()
       .map(dishes => dishes.filter(dish => this.favorites.some(el => el === dish.id)));
