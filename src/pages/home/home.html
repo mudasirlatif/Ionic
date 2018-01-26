@@ -3,11 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+<ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-4>
   <ion-card *ngIf="dish">
     <img src="{{BaseURL + dish.image}}"/>
     <ion-card-content>
@@ -24,7 +27,8 @@
   <div *ngIf="dishErrMess">
     <h2>Error</h2>
     <h4>{{dishErrMess}}</h4>
-  </div>
+  </div></ion-col>
+  <ion-col col-12 col-lg-4>
   <ion-card *ngIf="promotion">
     <img src="{{BaseURL + promotion.image}}"/>
     <ion-card-content>
@@ -41,7 +45,8 @@
   <div *ngIf="promoErrMess">
     <h2>Error</h2>
     <h4>{{promoErrMess}}</h4>
-  </div>
+  </div></ion-col>
+  <ion-col col-12 col-lg-4>
   <ion-card *ngIf="leader">
     <img src="{{BaseURL + leader.image}}"/>
     <ion-card-content>
@@ -58,7 +63,7 @@
   <div *ngIf="leaderErrMess">
     <h2>Error</h2>
     <h4>{{leaderErrMess}}</h4>
-  </div>
+  </div></ion-col></ion-row></ion-grid>
    <ion-fab right bottom>
     <button ion-fab color="accent"><ion-icon name="arrow-dropup"></ion-icon></button>
     <ion-fab-list side="top">

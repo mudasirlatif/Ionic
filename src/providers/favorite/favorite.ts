@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { Dish } from '../../shared/dish';
 import { DishProvider } from '../dish/dish';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/filter';
+
 /*
   Generated class for the FavoriteProvider provider.
 
@@ -16,7 +17,7 @@ import 'rxjs/add/operator/filter';
 export class FavoriteProvider {
 
 	favorites: Array<any>;
-  dish: Dish;
+  
   constructor(public http: Http, private dishservice: DishProvider) {
     console.log('Hello FavoriteProvider Provider');
     this.favorites = [];
@@ -32,11 +33,11 @@ isFavorite(id: number): boolean
 {
 	return this.favorites.some(el => el === id);
 }
+getFavorites(): Observable<Dish>{
+return this.dishservice.getDishes()
+.map(dishes => dishes['filter'](dish => this.favorites.some(el => el === dish.id)));
+}
 
-getFavorites(): Observable<Dish> {
-    return this.dishservice.getDishes()
-      .map(dishes => dishes.filter(dish => this.favorites.some(el => el === dish.id)));
-  }
 deleteFavorite(id: number): Observable<Dish>
 {
 let index = this.favorites.indexOf(id);

@@ -40,13 +40,15 @@ onSelectedDish(event, dish)
 	dish: dish
 	});
 }
+
 addToFavorites(dish: Dish)
  {
- console.log('Adding to favorites', dish.id);
+ console.log('Adding to favorites', dish.id); 
  this.favoriteservice.addFavorite(dish.id);
  this.toastCtrl.create({
         message: 'Dish ' + dish.id + ' added as a favorite successfully', 
         duration: 3000
   }).present();
  }
+ 
 }
