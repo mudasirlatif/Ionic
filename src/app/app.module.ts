@@ -13,6 +13,13 @@ import { FavoritesPage } from '../pages/favorites/favorites';
 import { ReservationPage } from '../pages/reservation/reservation';
 import { CommentPage } from '../pages/comment/comment';
 import { LoginPage } from '../pages/login/login';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { CallNumber } from '@ionic-native/call-number';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Camera } from '@ionic-native/camera';
+import { RegisterPage } from '../pages/register/register';
+import { Network } from '@ionic-native/network';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,7 +41,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     FavoritesPage,
     ReservationPage,
     CommentPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     FavoritesPage,
     ReservationPage,
     CommentPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
@@ -64,8 +73,13 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     PromotionProvider,
     { provide: 'BaseURL', useValue: baseURL },
     ProcessHttpmsgProvider,
-    FavoriteProvider
-    
+    FavoriteProvider,
+    LocalNotifications,
+    EmailComposer,
+    CallNumber,
+    SocialSharing,
+    Camera,
+    Network
   ]
 })
 export class AppModule {}
